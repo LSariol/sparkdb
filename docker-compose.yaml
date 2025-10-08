@@ -1,8 +1,8 @@
-name: postgresDB
+name: postgresdb
 services:
   db:
     image: postgres:16.4
-    container_name: postgresDB
+    container_name: postgresdb
     environment:
       POSTGRES_DB: ${PG_DB}
       POSTGRES_USER: ${PG_USER}
