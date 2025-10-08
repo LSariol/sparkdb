@@ -1,8 +1,8 @@
-name: postgresdb
+name: lighthousedb
 services:
   db:
     image: postgres:16.4
-    container_name: postgresdb
+    container_name: lighthousedb
     environment:
       POSTGRES_DB: ${PG_DB}
       POSTGRES_USER: ${PG_USER}
