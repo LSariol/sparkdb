@@ -1,8 +1,8 @@
-name: lighthousedb
+name: sparkdb
 services:
   db:
     image: postgres:16.4
-    container_name: lighthousedb
+    container_name: sparkdb
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -11,3 +11,9 @@ services:
       - "5000:5432"
     volumes:
       - /srv/pg_data:/var/lib/postgresql/data
+    networks:
+      - spark
+
+networks:
+  spark:
+    external: true
