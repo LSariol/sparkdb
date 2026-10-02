@@ -6,9 +6,9 @@ services:
     environment:
       POSTGRES_DB: ${SPARKDB_DATABASE_NAME}
       POSTGRES_USER: ${SPARKDB_DATABASE_USER}
-      POSTGRES_PASSWORD: ${SPARKDB_DATBASE_PASSWORD}
+      POSTGRES_PASSWORD: ${SPARKDB_DATABASE_PASSWORD}
     ports:
-      - "5000:5432"
+      - "127.0.0.1:5000:5432"
     volumes:
       - /srv/pg_data:/var/lib/postgresql/data
     restart: unless-stopped
