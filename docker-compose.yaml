@@ -1,4 +1,11 @@
 name: sparkdb
+
+x-lighthouse:
+  deploy: releases
+  tier: data
+  backup: postgres
+
+
 services:
   db:
     image: postgres:16.4
@@ -12,6 +19,11 @@ services:
     volumes:
       - /srv/server/storage/sparkdb/data:/var/lib/postgresql/data
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+      interval: 5s
+      retries: 12
+
     networks:
       - spark
 
